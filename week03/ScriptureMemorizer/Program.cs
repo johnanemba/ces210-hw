@@ -27,3 +27,10 @@ class Program
         Console.WriteLine("\nAll words are now hidden. Memorization complete!");
     }
 }
+// This program exceeds the core requirements by:
+// - Loading scriptures from an external file instead of hardcoding them.
+// - Allowing the user to request hints (`hint` command).
+// - Ensuring that only visible words are hidden (not re-hiding already hidden words).
+// - Using proper encapsulation by making class fields private.
+// - Adding a method to check if all words are hidden, which is useful for determining when to end the game.
+// - Using LINQ for filtering and manipulating collections, which is a more modern approach in C#.
