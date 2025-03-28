@@ -1,9 +1,25 @@
-using System;
-
-class Program
+class Product
 {
-    static void Main(string[] args)
+    private string _name;
+    private string _productId;
+    private double _price;
+    private int _quantity;
+
+    public Product(string name, string productId, double price, int quantity)
     {
-        Console.WriteLine("Hello World! This is the OnlineOrdering Project.");
+        _name = name;
+        _productId = productId;
+        _price = price;
+        _quantity = quantity;
+    }
+
+    public double CalculateTotalCost()
+    {
+        return _price * _quantity;
+    }
+
+    public string GetLabel()
+    {
+        return $"{_name} (ID: {_productId})";
     }
 }
