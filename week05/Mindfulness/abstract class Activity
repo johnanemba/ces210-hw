@@ -1,0 +1,59 @@
+{
+    // Private member variable to store activity duration
+    private int duration;
+
+    // Common method to start the activity, gather duration, and begin
+    public void Start()
+    {
+        Console.WriteLine("Enter the duration in seconds for this activity:");
+        duration = int.Parse(Console.ReadLine());
+
+        // Initial message before activity starts
+        Console.WriteLine("Get ready to begin!");
+        Pause(3); // Give user time to prepare
+
+        PerformActivity(); // Call specific activity method
+
+        EndActivity(); // Common method to end the activity
+    }
+
+    // Abstract method to perform specific activity (Breathing, Reflection, or Listing)
+    protected abstract void PerformActivity();
+
+    // Method to end activity and give completion message
+    private void EndActivity()
+    {
+        Console.WriteLine("Great job! You've completed the activity.");
+        Pause(3); // Short pause after completion
+    }
+
+    // Helper method to simulate pause with an animation
+    protected void Pause(int seconds)
+    {
+        for (int i = 0; i < seconds; i++)
+        {
+            Console.Write(". ");
+            Thread.Sleep(1000); // Pause for 1 second
+        }
+        Console.WriteLine();
+    }
+}
+
+class BreathingActivity : Activity
+{
+    // Override the PerformActivity to handle Breathing activity logic
+    protected override void PerformActivity()
+    {
+        Console.WriteLine("Breathing Activity: Inhale and exhale slowly.");
+
+        DateTime endTime = DateTime.Now.AddSeconds(30);  // 30 seconds as an example duration for now
+
+        while (DateTime.Now < endTime)
+        {
+            Console.WriteLine("Breathe in...");
+            Pause(4); // Pause for inhalation time
+            Console.WriteLine("Breathe out...");
+            Pause(4); // Pause for exhalation time
+        }
+    }
+}

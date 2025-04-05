@@ -1,0 +1,35 @@
+{
+    private static List<string> prompts = new List<string>
+    {
+        "Who are people that you appreciate?",
+        "What are personal strengths of yours?",
+        "Who are people that you have helped this week?"
+    };
+
+    // Override the PerformActivity to handle Listing activity logic
+    protected override void PerformActivity()
+    {
+        Random rand = new Random();
+        string prompt = prompts[rand.Next(prompts.Count)];
+        Console.WriteLine($"Listing Prompt: {prompt}");
+        Pause(3); // Give user time to start thinking
+
+        DateTime endTime = DateTime.Now.AddSeconds(30); // Example duration for the listing activity
+        List<string> items = new List<string>();
+
+        while (DateTime.Now < endTime)
+        {
+            Console.WriteLine("Enter an item (or type 'stop' to finish): ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "stop")
+            {
+                break;
+            }
+            items.Add(input);
+            Console.WriteLine($"Item {items.Count}: {input}");
+            Pause(2); // Pause for a bit between each entry
+        }
+
+        Console.WriteLine($"You listed {items.Count} items.");
+    }
+}
