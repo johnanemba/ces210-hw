@@ -1,25 +1,25 @@
-class Address
+public class Address
 {
     private string _street;
     private string _city;
-    private string _state;
+    private string _county;
     private string _country;
 
-    public Address(string street, string city, string state, string country)
+    public Address(string street, string city, string county, string country)
     {
         _street = street;
         _city = city;
-        _state = state;
+        _county = county;
         _country = country;
     }
 
-    public bool IsInUSA()
+    public string GetFullAddress()
     {
-        return _country.ToUpper() == "USA";
+        return $"{_street}\n{_city}, {_county}\n{_country}";
     }
 
-    public string FormatAddress()
+    public bool IsInKenya()
     {
-        return $"{_street}\n{_city}, {_state}\n{_country}";
+        return _country.Trim().ToLower() == "kenya";
     }
 }

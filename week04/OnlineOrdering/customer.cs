@@ -1,4 +1,4 @@
-class Customer
+public class Customer
 {
     private string _name;
     private Address _address;
@@ -9,13 +9,18 @@ class Customer
         _address = address;
     }
 
-    public bool LivesInUSA()
+    public string GetName()
     {
-        return _address.IsInUSA();
+        return _name;
     }
 
-    public string RetrieveShippingDetails()
+    public string GetCustomerAddress()
     {
-        return $"{_name}\n{_address.FormatAddress()}";
+        return _address.GetFullAddress();
+    }
+
+    public bool IsKenyaResidentialArea()
+    {
+        return _address.IsInKenya();
     }
 }
