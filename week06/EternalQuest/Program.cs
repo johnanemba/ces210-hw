@@ -1,9 +1,11 @@
+// File: Program.cs
 using System;
 
-class Program
+partial class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the EternalQuest Project.");
+        GoalManager goalManager = new GoalManager();
+        goalManager.Run();
     }
 }
